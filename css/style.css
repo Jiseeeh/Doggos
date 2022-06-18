@@ -1,17 +1,52 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-size: 62.5%;
+}
+
 body {
-  min-height: 100vh;
-  background-color: pink;
+  height: 200vh;
+}
+
+.header {
+  background-image: url("../images/bg.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: left;
+  height: 100vh;
+}
+
+.header img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.content {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.container {
-  position: relative;
+.inputField-container {
+  width: 90px;
+  border: 5px solid dodgerblue;
 }
 
 .dropdown {
   background-color: hsl(0, 0%, 95%);
   width: 100%;
   cursor: pointer;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid__item {
+  width: 100%;
+  object-fit: contain;
+  padding: 1rem;
 }
