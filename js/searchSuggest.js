@@ -1,17 +1,29 @@
 const inputField = document.querySelector(".input-field");
 const inputFieldContainer = document.querySelector(".inputField-container");
+import { fetchDogImg } from "./dogPictureFetcher.js";
 const arrOfWords = [
-  "adobo",
-  "kaldereta",
-  "sinigang",
-  "hotdog",
-  "tuna",
-  "menudo",
-  "nilaga",
-  "ginisa",
-  "kare-kare",
-  "kambing",
-  "kalabaw",
+  "Akita",
+  "Appenzeller",
+  "Chow",
+  "Cardigan Corgi",
+  "Dachshund",
+  "Great Dane",
+  "Doberman",
+  "Shiba",
+  "Husky",
+  "Shihtzu",
+  "Spaniel",
+  "Terrier",
+  "Waterdog",
+  "Tervuren",
+  "Vizsla",
+  "Weimaraner",
+  "Whippet",
+  "Samoyed",
+  "Saluki",
+  "Schipperke",
+  "Pyrenees",
+  "Redbone",
 ];
 
 function startChecking() {
@@ -25,7 +37,10 @@ function startChecking() {
     let matchedWords = [];
 
     arrOfWords.forEach((word) => {
-      if (word.substring(0, inputField.value.length) == inputField.value) {
+      if (
+        word.substring(0, inputField.value.length).toLowerCase() ==
+        inputField.value
+      ) {
         matchedWords.push(word);
       } else clearDropdown();
     });
@@ -63,6 +78,7 @@ function isDropdownClicked() {
     dropdown.addEventListener("click", () => {
       inputField.value = dropdown.textContent;
       clearDropdown();
+      fetchDogImg(inputField.value.toLowerCase());
       return true;
     });
   });
