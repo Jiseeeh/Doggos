@@ -1,0 +1,16 @@
+body {
+  min-height: 100vh;
+  background-color: pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  position: relative;
+}
+
+.dropdown {
+  background-color: hsl(0, 0%, 95%);
+  width: 100%;
+}
