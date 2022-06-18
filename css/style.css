@@ -13,4 +13,5 @@ body {
 .dropdown {
   background-color: hsl(0, 0%, 95%);
   width: 100%;
+  cursor: pointer;
 }
