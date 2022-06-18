@@ -15,6 +15,7 @@ const arrOfWords = [
 ];
 
 function startChecking() {
+  isDropdownClicked();
   inputField.addEventListener("input", () => {
     if (inputField.value == "") {
       clearDropdown(inputFieldContainer);
@@ -33,8 +34,10 @@ function startChecking() {
       let div = document.createElement("div");
       div.classList.add("dropdown");
       div.textContent = matchedWords[i];
-      if (hasExistingDiv(inputFieldContainer, matchedWords[i]));
-      else inputFieldContainer.appendChild(div);
+      if (hasExistingDiv(inputFieldContainer, matchedWords[i])) continue;
+      inputFieldContainer.appendChild(div);
+
+      if (isDropdownClicked()) break;
     }
   });
 }
@@ -53,6 +56,16 @@ function hasExistingDiv(content) {
     }
   });
   return false;
+}
+
+function isDropdownClicked() {
+  inputFieldContainer.querySelectorAll(".dropdown").forEach((dropdown) => {
+    dropdown.addEventListener("click", () => {
+      inputField.value = dropdown.textContent;
+      clearDropdown();
+      return true;
+    });
+  });
 }
 
 export { startChecking };
